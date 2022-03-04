@@ -1,0 +1,23 @@
+<div class="container top30">
+    <div class="row">
+        <div class="col-3">
+            <label class="mb-1">Buscar artista</label>
+            <input type="text" placeholder="Nombre artista..." class="form-control ng-valid ng-dirty ng-touched" [(ngModel)]="nombreArtista" (ngModelChange)="buscarArtista($event)">
+        </div>
+        <div class="col-2"></div>
+        <div class="col-7">
+            <h1 class="text-capitalize">{{nombreArtista}}</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card-columns m-5 animated faceIn">
+            <div class="card puntero" *ngFor="let artista of artistas" (click)="getArtista(artista.id)">
+                <img class="card-img-top" src="{{artista.images | noImage}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{artista.name}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
